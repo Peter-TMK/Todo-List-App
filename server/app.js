@@ -4,12 +4,12 @@ const config = require("./utils/config");
 // allows us to eliminate the try-catch blocks completely.
 // For example the route for deleting a note.
 // Ensure to import it before the routes are imported
-require("express-async-errors");
+// require("express-async-errors");
 const app = express();
 const cors = require("cors");
-const usersRouter = require("./controllers/users");
+const signupRouter = require("./controllers/users");
 const loginRouter = require("./controllers/login");
-const notesRouter = require("./controllers/notes");
+// const notesRouter = require("./controllers/notes");
 const middleware = require("./utils/middleware");
 const logger = require("./utils/logger");
 const mongoose = require("mongoose");
@@ -32,8 +32,8 @@ mongoose
 app.use(cors());
 app.use(express.json());
 
-app.use("/api/users", usersRouter);
+app.use("/api/signup", signupRouter);
 app.use("/api/login", loginRouter);
-app.use("/api/notes", notesRouter);
+// app.use("/api/notes", notesRouter);
 
 module.exports = app;
